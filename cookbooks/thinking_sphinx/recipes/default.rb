@@ -1,13 +1,14 @@
-require 'pp'
 #
 # Cookbook Name:: thinking_sphinx
 # Recipe:: default
 #
 
+require 'chef-deploy'
+
 if ['solo', 'app', 'app_master'].include?(node[:instance_role])
 
   # be sure to replace "app_name" with the name of your application.
-  run_for_app("app_name") do |app_name, data|
+  run_for_app("duffman") do |app_name, data|
   
     directory "/var/run/sphinx" do
       owner node[:owner_name]
@@ -52,6 +53,14 @@ if ['solo', 'app', 'app_master'].include?(node[:instance_role])
         :user => node[:owner_name]
       })
     end
-  
+    
+    directory "/data/#{app_name}/shared/config/thinkingsphinx" do
+      recursive true
+      owner node[:owner_name]
+      group node[:owner_name]
+      mode 0755
+    end
   end
+  
+
 end

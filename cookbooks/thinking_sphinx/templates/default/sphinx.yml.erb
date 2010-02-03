@@ -1,4 +1,5 @@
 <%= @node[:environment][:framework_env] %>:
+  bin_path: '/usr/bin'
   searchd_log_file: /var/log/engineyard/sphinx/<%= @app_name %>/searchd.log
   query_log_file: /var/log/engineyard/sphinx/<%= @app_name %>/query.log
   pid_file: /var/run/sphinx/<%= @app_name %>.pid  
