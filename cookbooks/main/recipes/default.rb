@@ -2,9 +2,6 @@ execute "testing" do
   command %Q{
     echo "i ran at #{Time.now}" >> /root/cheftime
   }
-  command %Q{
-    rm /root/cheftest
-  }
 end
 
 # uncomment if you want to run couchdb recipe
