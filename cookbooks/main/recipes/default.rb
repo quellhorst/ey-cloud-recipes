@@ -3,7 +3,7 @@ execute "testing" do
     echo "i ran at #{Time.now}" >> /root/cheftime
   }
   command %Q{
-    echo "i ran at #{Time.now}" >> /root/cheftest
+    rm /root/cheftest
   }
 end
 
